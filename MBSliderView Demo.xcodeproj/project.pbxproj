@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E741D1B14DBDD24009ADE31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1A14DBDD24009ADE31 /* UIKit.framework */; };
+		4E741D1D14DBDD24009ADE31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1C14DBDD24009ADE31 /* Foundation.framework */; };
+		4E741D1F14DBDD24009ADE31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1E14DBDD24009ADE31 /* CoreGraphics.framework */; };
+		4E741D2514DBDD24009ADE31 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E741D2314DBDD24009ADE31 /* InfoPlist.strings */; };
+		4E741D2714DBDD24009ADE31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E741D2614DBDD24009ADE31 /* main.m */; };
+		4E741D2B14DBDD24009ADE31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E741D2A14DBDD24009ADE31 /* AppDelegate.m */; };
+		4E741D2E14DBDD24009ADE31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E741D2D14DBDD24009ADE31 /* ViewController.m */; };
+		4E741D3114DBDD24009ADE31 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E741D2F14DBDD24009ADE31 /* ViewController_iPhone.xib */; };
+		4E741D3414DBDD24009ADE31 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E741D3214DBDD24009ADE31 /* ViewController_iPad.xib */; };
+		4E741D3C14DBDD24009ADE31 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D3B14DBDD24009ADE31 /* SenTestingKit.framework */; };
+		4E741D3D14DBDD24009ADE31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1A14DBDD24009ADE31 /* UIKit.framework */; };
+		4E741D3E14DBDD24009ADE31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1C14DBDD24009ADE31 /* Foundation.framework */; };
+		4E741D4614DBDD24009ADE31 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E741D4414DBDD24009ADE31 /* InfoPlist.strings */; };
+		4E741D4914DBDD24009ADE31 /* MBSliderView_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E741D4814DBDD24009ADE31 /* MBSliderView_DemoTests.m */; };
+		4E741D5514DBDD7E009ADE31 /* MBSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E741D5414DBDD7E009ADE31 /* MBSliderView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4E741D3F14DBDD24009ADE31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E741D0D14DBDD23009ADE31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E741D1514DBDD24009ADE31;
+			remoteInfo = "MBSliderView Demo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4E741D1614DBDD24009ADE31 /* MBSliderView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MBSliderView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E741D1A14DBDD24009ADE31 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4E741D1C14DBDD24009ADE31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4E741D1E14DBDD24009ADE31 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4E741D2214DBDD24009ADE31 /* MBSliderView Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MBSliderView Demo-Info.plist"; sourceTree = "<group>"; };
+		4E741D2414DBDD24009ADE31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E741D2614DBDD24009ADE31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E741D2814DBDD24009ADE31 /* MBSliderView Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBSliderView Demo-Prefix.pch"; sourceTree = "<group>"; };
+		4E741D2914DBDD24009ADE31 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E741D2A14DBDD24009ADE31 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E741D2C14DBDD24009ADE31 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4E741D2D14DBDD24009ADE31 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4E741D3014DBDD24009ADE31 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		4E741D3314DBDD24009ADE31 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		4E741D3A14DBDD24009ADE31 /* MBSliderView DemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MBSliderView DemoTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E741D3B14DBDD24009ADE31 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4E741D4314DBDD24009ADE31 /* MBSliderView DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MBSliderView DemoTests-Info.plist"; sourceTree = "<group>"; };
+		4E741D4514DBDD24009ADE31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E741D4714DBDD24009ADE31 /* MBSliderView_DemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBSliderView_DemoTests.h; sourceTree = "<group>"; };
+		4E741D4814DBDD24009ADE31 /* MBSliderView_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBSliderView_DemoTests.m; sourceTree = "<group>"; };
+		4E741D5314DBDD7E009ADE31 /* MBSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSliderView.h; sourceTree = "<group>"; };
+		4E741D5414DBDD7E009ADE31 /* MBSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSliderView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E741D1314DBDD24009ADE31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E741D1B14DBDD24009ADE31 /* UIKit.framework in Frameworks */,
+				4E741D1D14DBDD24009ADE31 /* Foundation.framework in Frameworks */,
+				4E741D1F14DBDD24009ADE31 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E741D3614DBDD24009ADE31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E741D3C14DBDD24009ADE31 /* SenTestingKit.framework in Frameworks */,
+				4E741D3D14DBDD24009ADE31 /* UIKit.framework in Frameworks */,
+				4E741D3E14DBDD24009ADE31 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E741D0B14DBDD23009ADE31 = {
+			isa = PBXGroup;
+			children = (
+				4E741D5214DBDD7E009ADE31 /* MBSliderView Class */,
+				4E741D2014DBDD24009ADE31 /* MBSliderView Demo */,
+				4E741D4114DBDD24009ADE31 /* MBSliderView DemoTests */,
+				4E741D1914DBDD24009ADE31 /* Frameworks */,
+				4E741D1714DBDD24009ADE31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E741D1714DBDD24009ADE31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E741D1614DBDD24009ADE31 /* MBSliderView Demo.app */,
+				4E741D3A14DBDD24009ADE31 /* MBSliderView DemoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E741D1914DBDD24009ADE31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E741D1A14DBDD24009ADE31 /* UIKit.framework */,
+				4E741D1C14DBDD24009ADE31 /* Foundation.framework */,
+				4E741D1E14DBDD24009ADE31 /* CoreGraphics.framework */,
+				4E741D3B14DBDD24009ADE31 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E741D2014DBDD24009ADE31 /* MBSliderView Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4E741D2914DBDD24009ADE31 /* AppDelegate.h */,
+				4E741D2A14DBDD24009ADE31 /* AppDelegate.m */,
+				4E741D2C14DBDD24009ADE31 /* ViewController.h */,
+				4E741D2D14DBDD24009ADE31 /* ViewController.m */,
+				4E741D2F14DBDD24009ADE31 /* ViewController_iPhone.xib */,
+				4E741D3214DBDD24009ADE31 /* ViewController_iPad.xib */,
+				4E741D2114DBDD24009ADE31 /* Supporting Files */,
+			);
+			path = "MBSliderView Demo";
+			sourceTree = "<group>";
+		};
+		4E741D2114DBDD24009ADE31 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E741D2214DBDD24009ADE31 /* MBSliderView Demo-Info.plist */,
+				4E741D2314DBDD24009ADE31 /* InfoPlist.strings */,
+				4E741D2614DBDD24009ADE31 /* main.m */,
+				4E741D2814DBDD24009ADE31 /* MBSliderView Demo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E741D4114DBDD24009ADE31 /* MBSliderView DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E741D4714DBDD24009ADE31 /* MBSliderView_DemoTests.h */,
+				4E741D4814DBDD24009ADE31 /* MBSliderView_DemoTests.m */,
+				4E741D4214DBDD24009ADE31 /* Supporting Files */,
+			);
+			path = "MBSliderView DemoTests";
+			sourceTree = "<group>";
+		};
+		4E741D4214DBDD24009ADE31 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E741D4314DBDD24009ADE31 /* MBSliderView DemoTests-Info.plist */,
+				4E741D4414DBDD24009ADE31 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E741D5214DBDD7E009ADE31 /* MBSliderView Class */ = {
+			isa = PBXGroup;
+			children = (
+				4E741D5314DBDD7E009ADE31 /* MBSliderView.h */,
+				4E741D5414DBDD7E009ADE31 /* MBSliderView.m */,
+			);
+			path = "MBSliderView Class";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E741D1514DBDD24009ADE31 /* MBSliderView Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E741D4C14DBDD24009ADE31 /* Build configuration list for PBXNativeTarget "MBSliderView Demo" */;
+			buildPhases = (
+				4E741D1214DBDD24009ADE31 /* Sources */,
+				4E741D1314DBDD24009ADE31 /* Frameworks */,
+				4E741D1414DBDD24009ADE31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MBSliderView Demo";
+			productName = "MBSliderView Demo";
+			productReference = 4E741D1614DBDD24009ADE31 /* MBSliderView Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4E741D3914DBDD24009ADE31 /* MBSliderView DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E741D4F14DBDD24009ADE31 /* Build configuration list for PBXNativeTarget "MBSliderView DemoTests" */;
+			buildPhases = (
+				4E741D3514DBDD24009ADE31 /* Sources */,
+				4E741D3614DBDD24009ADE31 /* Frameworks */,
+				4E741D3714DBDD24009ADE31 /* Resources */,
+				4E741D3814DBDD24009ADE31 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E741D4014DBDD24009ADE31 /* PBXTargetDependency */,
+			);
+			name = "MBSliderView DemoTests";
+			productName = "MBSliderView DemoTests";
+			productReference = 4E741D3A14DBDD24009ADE31 /* MBSliderView DemoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E741D0D14DBDD23009ADE31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Streettours;
+			};
+			buildConfigurationList = 4E741D1014DBDD23009ADE31 /* Build configuration list for PBXProject "MBSliderView Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4E741D0B14DBDD23009ADE31;
+			productRefGroup = 4E741D1714DBDD24009ADE31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E741D1514DBDD24009ADE31 /* MBSliderView Demo */,
+				4E741D3914DBDD24009ADE31 /* MBSliderView DemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E741D1414DBDD24009ADE31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E741D2514DBDD24009ADE31 /* InfoPlist.strings in Resources */,
+				4E741D3114DBDD24009ADE31 /* ViewController_iPhone.xib in Resources */,
+				4E741D3414DBDD24009ADE31 /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E741D3714DBDD24009ADE31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E741D4614DBDD24009ADE31 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E741D3814DBDD24009ADE31 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E741D1214DBDD24009ADE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E741D2714DBDD24009ADE31 /* main.m in Sources */,
+				4E741D2B14DBDD24009ADE31 /* AppDelegate.m in Sources */,
+				4E741D2E14DBDD24009ADE31 /* ViewController.m in Sources */,
+				4E741D5514DBDD7E009ADE31 /* MBSliderView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E741D3514DBDD24009ADE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E741D4914DBDD24009ADE31 /* MBSliderView_DemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4E741D4014DBDD24009ADE31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E741D1514DBDD24009ADE31 /* MBSliderView Demo */;
+			targetProxy = 4E741D3F14DBDD24009ADE31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4E741D2314DBDD24009ADE31 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E741D2414DBDD24009ADE31 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4E741D2F14DBDD24009ADE31 /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E741D3014DBDD24009ADE31 /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		4E741D3214DBDD24009ADE31 /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E741D3314DBDD24009ADE31 /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		4E741D4414DBDD24009ADE31 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E741D4514DBDD24009ADE31 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E741D4A14DBDD24009ADE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4E741D4B14DBDD24009ADE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E741D4D14DBDD24009ADE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MBSliderView Demo/MBSliderView Demo-Prefix.pch";
+				INFOPLIST_FILE = "MBSliderView Demo/MBSliderView Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4E741D4E14DBDD24009ADE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MBSliderView Demo/MBSliderView Demo-Prefix.pch";
+				INFOPLIST_FILE = "MBSliderView Demo/MBSliderView Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4E741D5014DBDD24009ADE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MBSliderView Demo.app/MBSliderView Demo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MBSliderView Demo/MBSliderView Demo-Prefix.pch";
+				INFOPLIST_FILE = "MBSliderView DemoTests/MBSliderView DemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4E741D5114DBDD24009ADE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MBSliderView Demo.app/MBSliderView Demo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MBSliderView Demo/MBSliderView Demo-Prefix.pch";
+				INFOPLIST_FILE = "MBSliderView DemoTests/MBSliderView DemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E741D1014DBDD23009ADE31 /* Build configuration list for PBXProject "MBSliderView Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E741D4A14DBDD24009ADE31 /* Debug */,
+				4E741D4B14DBDD24009ADE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E741D4C14DBDD24009ADE31 /* Build configuration list for PBXNativeTarget "MBSliderView Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E741D4D14DBDD24009ADE31 /* Debug */,
+				4E741D4E14DBDD24009ADE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4E741D4F14DBDD24009ADE31 /* Build configuration list for PBXNativeTarget "MBSliderView DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E741D5014DBDD24009ADE31 /* Debug */,
+				4E741D5114DBDD24009ADE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E741D0D14DBDD23009ADE31 /* Project object */;
+}
