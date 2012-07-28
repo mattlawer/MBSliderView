@@ -12,25 +12,24 @@
 @protocol MBSliderViewDelegate;
 
 @interface MBSliderView : UIView {
-    UISlider *slider;
-    MBSliderLabel *label;
-    id<MBSliderViewDelegate> delegate;
-    BOOL sliding;
+    UISlider *_slider;
+    MBSliderLabel *_label;
+    id<MBSliderViewDelegate> _delegate;
+    BOOL _sliding;
 }
 
-@property (nonatomic, retain) UISlider *slider;
-@property (nonatomic, retain) MBSliderLabel *label;
+@property (nonatomic, assign) NSString *text;
+@property (nonatomic, assign) UIColor *labelColor;
 @property (nonatomic, assign) IBOutlet id<MBSliderViewDelegate> delegate;
 @property (nonatomic) BOOL enabled;
 
 - (void) setThumbColor:(UIColor *)color;
-- (void) setText:(NSString *)text;
 
 @end
 
 @protocol MBSliderViewDelegate <NSObject>
 
-- (void) sliderDidSlide:(MBSliderView *)slider;
+- (void) sliderDidSlide:(MBSliderView *)slideView;
 
 @end
 

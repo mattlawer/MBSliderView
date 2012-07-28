@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+@interface ViewController ()
+- (UIColor *) randomColor;
+@end
 
 @implementation ViewController
 
@@ -25,12 +28,15 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     MBSliderView *s1 = [[MBSliderView alloc] initWithFrame:CGRectMake(20.0, 20.0, self.view.frame.size.width-40.0, 44.0)];
-    [s1 setText:@"MBSliderView"];
-    [s1 setDelegate:self];
+    [s1 setText:@"MBSliderView"]; // set the label text
+    //[s1 setThumbColor:[self randomColor]]; // set custom thumb color
+    //[s1 setLabelColor:[self randomColor]]; // set custom label color
+    [s1 setDelegate:self]; // set the MBSliderView delegate
     [self.view addSubview:s1];
     [s1 release];
     
     
+    // Loaded from nib
     [s2 setText:@"Customized text"];
     [s2 setThumbColor:[UIColor colorWithRed:28.0/255.0 green:190.0/255.0 blue:28.0/255.0 alpha:1.0]];
     
@@ -50,14 +56,10 @@
 
 
 // MBSliderViewDelegate
-- (void) sliderDidSlide:(MBSliderView *)slider {
-    
-    CGFloat r = arc4random()%255;
-    CGFloat g = arc4random()%255;
-    CGFloat b = arc4random()%255;
-    UIColor *color = [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
-    
-    [slider setThumbColor:color];
+- (void) sliderDidSlide:(MBSliderView *)slideView {
+    // Customization example
+    [slideView setThumbColor:[self randomColor]];
+    [slideView setLabelColor:[self randomColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -88,6 +90,15 @@
     } else {
         return YES;
     }
+}
+
+
+// Random Color
+- (UIColor *) randomColor {
+    CGFloat r = arc4random()%255;
+    CGFloat g = arc4random()%255;
+    CGFloat b = arc4random()%255;
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
 }
 
 @end

@@ -18,13 +18,11 @@ static const CGFloat gradientDimAlpha = 0.5;
 @interface MBSliderView()
 - (void) loadContent;
 - (UIImage *) thumbWithColor:(UIColor*)color;
-- (UIImage *) clear;
+- (UIImage *) clearPixel;
 @end
 
 @implementation MBSliderView
-@synthesize slider;
-@synthesize label;
-@synthesize delegate;
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -37,7 +35,7 @@ static const CGFloat gradientDimAlpha = 0.5;
     self = [super initWithFrame:frame];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self loadContent];
+        [self loadContent];        
     }
     return self;
 }
@@ -60,53 +58,53 @@ static const CGFloat gradientDimAlpha = 0.5;
     self.backgroundColor = [UIColor clearColor];
     self.userInteractionEnabled = YES;
     
-    if (!label || !slider) {
+    if (!_label || !_slider) {
         [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         
-        self.label = [[MBSliderLabel alloc] initWithFrame:CGRectMake((self.bounds.size.width-180.0)/2.0+50.0, (self.bounds.size.height-30.0)/2.0, 180.0, 30.0)];
-        self.label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        self.label.textColor = [UIColor whiteColor];
-        self.label.textAlignment = UITextAlignmentCenter;
-        self.label.backgroundColor = [UIColor clearColor];
-        self.label.font = [UIFont systemFontOfSize:24];
-        self.label.text = @"Slide";
-        [self addSubview:self.label];
-        self.label.animated = YES;
+        _label = [[MBSliderLabel alloc] initWithFrame:CGRectMake((self.bounds.size.width-180.0)/2.0+50.0, (self.bounds.size.height-30.0)/2.0, 180.0, 30.0)];
+        _label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        _label.textColor = [UIColor whiteColor];
+        _label.textAlignment = UITextAlignmentCenter;
+        _label.backgroundColor = [UIColor clearColor];
+        _label.font = [UIFont systemFontOfSize:24];
+        _label.text = @"Slide";
+        [self addSubview:_label];
+        _label.animated = YES;
         
         
         
-        self.slider = [[UISlider alloc] initWithFrame:self.bounds];
-        self.slider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        CGPoint ctr = self.slider.center;
-        CGRect sliderFrame = self.slider.frame;
+        _slider = [[UISlider alloc] initWithFrame:self.bounds];
+        _slider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        CGPoint ctr = _slider.center;
+        CGRect sliderFrame = _slider.frame;
         sliderFrame.size.width -= 4; //each "edge" of the track is 2 pixels wide
-        self.slider.frame = sliderFrame;
-        self.slider.center = ctr;
-        self.slider.backgroundColor = [UIColor clearColor];
+        _slider.frame = sliderFrame;
+        _slider.center = ctr;
+        _slider.backgroundColor = [UIColor clearColor];
         UIImage *thumbImage = [self thumbWithColor:[UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0]];
-        [self.slider setThumbImage:thumbImage forState:UIControlStateNormal];
+        [_slider setThumbImage:thumbImage forState:UIControlStateNormal];
 
-        UIImage *clearImage = [self clear];
-        [self.slider setMaximumTrackImage:clearImage forState:UIControlStateNormal];
-        [self.slider setMinimumTrackImage:clearImage forState:UIControlStateNormal];
+        UIImage *clearImage = [self clearPixel];
+        [_slider setMaximumTrackImage:clearImage forState:UIControlStateNormal];
+        [_slider setMinimumTrackImage:clearImage forState:UIControlStateNormal];
         
-        self.slider.minimumValue = 0.0;
-        self.slider.maximumValue = 1.0;
-        self.slider.continuous = YES;
-        self.slider.value = 0.0;
-        [self addSubview:self.slider];
+        _slider.minimumValue = 0.0;
+        _slider.maximumValue = 1.0;
+        _slider.continuous = YES;
+        _slider.value = 0.0;
+        [self addSubview:_slider];
         
         // Set the slider action methods
-        [self.slider addTarget:self 
+        [_slider addTarget:self 
                    action:@selector(sliderUp:) 
          forControlEvents:UIControlEventTouchUpInside];
-        [self.slider addTarget:self 
+        [_slider addTarget:self 
                    action:@selector(sliderUp:) 
          forControlEvents:UIControlEventTouchUpOutside];
-        [self.slider addTarget:self 
+        [_slider addTarget:self 
                    action:@selector(sliderDown:) 
          forControlEvents:UIControlEventTouchDown];
-        [self.slider addTarget:self 
+        [_slider addTarget:self 
                    action:@selector(sliderChanged:) 
          forControlEvents:UIControlEventValueChanged];
     }
@@ -114,62 +112,76 @@ static const CGFloat gradientDimAlpha = 0.5;
 
 // Implement the "enabled" property
 - (BOOL) enabled {
-	return slider.enabled;
+	return _slider.enabled;
 }
 
 - (void) setEnabled:(BOOL)enabled{
-	slider.enabled = enabled;
-	label.enabled = enabled;
+	_slider.enabled = enabled;
+	_label.enabled = enabled;
 	if (enabled) {
-		slider.value = 0.0;
-		label.alpha = 1.0;
-		sliding = NO;
+		_slider.value = 0.0;
+		_label.alpha = 1.0;
+		_sliding = NO;
 	}
-    [label setAnimated:enabled];
+    [_label setAnimated:enabled];
+}
+
+// Implement the "text" property
+- (NSString *) text {
+    return [_label text];
+}
+
+- (void) setText:(NSString *)text {
+    [_label setText:text];
+}
+
+// Implement the "labelColor" property
+- (UIColor *) labelColor {
+    return [_label textColor];
+}
+
+- (void) setLabelColor:(UIColor *)labelColor {
+    [_label setTextColor:labelColor];
 }
 
 // UISlider actions
 - (void) sliderUp:(UISlider *)sender {
     
-	if (sliding) {
-		sliding = NO;
+	if (_sliding) {
+		_sliding = NO;
         
-        if (slider.value == 1.0) {
-            [delegate sliderDidSlide:self];
+        if (_slider.value == 1.0) {
+            [_delegate sliderDidSlide:self];
         }
 		
-		[slider setValue:0.0 animated: YES];
-        label.alpha = 1.0;
-        [label setAnimated:YES];
+		[_slider setValue:0.0 animated: YES];
+        _label.alpha = 1.0;
+        [_label setAnimated:YES];
 	}
 }
 
 - (void) sliderDown:(UISlider *)sender {
 
-	if (!sliding) {
-		[label setAnimated:NO];
+	if (!_sliding) {
+		[_label setAnimated:NO];
 	}
-	sliding = YES;
+	_sliding = YES;
 }
 
 - (void) sliderChanged:(UISlider *)sender {
 
-	label.alpha = MAX(0.0, 1.0 - (slider.value * 3.5));
-    
+	_label.alpha = MAX(0.0, 1.0 - (_slider.value * 3.5));
 }
 
 
 - (void) setThumbColor:(UIColor *)color {
-    [self.slider setThumbImage:[self thumbWithColor:color] forState:UIControlStateNormal];
-}
-
-- (void) setText:(NSString *)text {
-    [self.label setText:text];
+    [_slider setThumbImage:[self thumbWithColor:color] forState:UIControlStateNormal];
 }
 
 - (void) dealloc {
-    [slider release];
-    [label release];
+    [_slider release];
+    [_label release];
+    _delegate = nil;
     [super dealloc];
 }
 
@@ -192,17 +204,21 @@ static const CGFloat gradientDimAlpha = 0.5;
     [color setFill];
     [[[UIColor blackColor] colorWithAlphaComponent:0.8] setStroke];
     
-	CGFloat wid2 = size.width-radius;
-    CGFloat hei2 = size.height-radius;
+    CGFloat radiusp = radius+0.5;
+    CGFloat wid1 = size.width-0.5;
+    CGFloat hei1 = size.height-0.5;
+    CGFloat wid2 = size.width-radiusp;
+    CGFloat hei2 = size.height-radiusp;
+    
 	// Path
-    CGContextMoveToPoint(context, 0.0, radius); 
-    CGContextAddArcToPoint(context, 0.0, 0.0, radius, 0.0, radius); 
-    CGContextAddLineToPoint(context, wid2, 0.0);
-    CGContextAddArcToPoint(context, size.width, 0.0, size.width, radius, radius);
-    CGContextAddLineToPoint(context, size.width, hei2);
-    CGContextAddArcToPoint(context, size.width, size.height, wid2, size.height, radius);
-    CGContextAddLineToPoint(context, radius, size.height);
-    CGContextAddArcToPoint(context, 0.0, size.height, 0.0, hei2, radius); 
+    CGContextMoveToPoint(context, 0.5, radiusp);
+    CGContextAddArcToPoint(context, 0.5, 0.5, radiusp, 0.5, radius);
+    CGContextAddLineToPoint(context, wid2, 0.5);
+    CGContextAddArcToPoint(context, wid1, 0.5, wid1, radiusp, radius);
+    CGContextAddLineToPoint(context, wid1, hei2);
+    CGContextAddArcToPoint(context, wid1, hei1, wid2, hei1, radius);
+    CGContextAddLineToPoint(context, radius, hei1);
+    CGContextAddArcToPoint(context, 0.5, hei1, 0.5, hei2, radius);
     CGContextClosePath(context); 
     CGContextDrawPath(context, kCGPathFillStroke);
     
@@ -211,14 +227,14 @@ static const CGFloat gradientDimAlpha = 0.5;
     [[[UIColor whiteColor] colorWithAlphaComponent:0.6] setFill];
     [[[UIColor blackColor] colorWithAlphaComponent:0.3] setStroke];
     
-    CGFloat points[8]= {    19.0*scale,
-                            16.0*scale, 
-                            36.0*scale, 
-                            10.0*scale, 
-                            52.0*scale, 
-                            22.0*scale, 
-                            34.0*scale, 
-                            28.0*scale };
+    CGFloat points[8]= {    (19.0*scale)+0.5,
+                            (16.0*scale)+0.5,
+                            (36.0*scale)+0.5,
+                            (10.0*scale)+0.5,
+                            (52.0*scale)+0.5,
+                            (22.0*scale)+0.5,
+                            (34.0*scale)+0.5,
+                            (28.0*scale)+0.5 };
     
     CGContextMoveToPoint(context, points[0], points[1]);
     CGContextAddLineToPoint(context, points[2], points[1]);
@@ -234,23 +250,22 @@ static const CGFloat gradientDimAlpha = 0.5;
     // Light
     [[[UIColor whiteColor] colorWithAlphaComponent:0.2] setFill];
     
-    CGFloat mid = size.height/2.0;
-    CGContextMoveToPoint(context, 0.0, radius); 
-    CGContextAddArcToPoint(context, 0.0, 0.0, radius, 0.0, radius); 
-    CGContextAddLineToPoint(context, size.width-radius, 0.0);
-    CGContextAddArcToPoint(context, size.width, 0.0, size.width, radius, radius);
-    CGContextAddLineToPoint(context, size.width, mid);
-    CGContextAddLineToPoint(context, 0.0, mid);
+    CGFloat mid = lround(size.height/2.0)+0.5;
+    CGContextMoveToPoint(context, 0.5, radiusp);
+    CGContextAddArcToPoint(context, 0.5, 0.5, radiusp, 0.5, radius);
+    CGContextAddLineToPoint(context, wid2, 0.5);
+    CGContextAddArcToPoint(context, wid1, 0.5, wid1, radiusp, radius);
+    CGContextAddLineToPoint(context, wid1, mid);
+    CGContextAddLineToPoint(context, 0.5, mid);
     CGContextClosePath(context); 
     CGContextDrawPath(context, kCGPathFill);
-    
     
     // pop context 
     UIGraphicsPopContext();                             
     
-    // get a UIImage from the image context- enjoy!!!
+    // get a UIImage from the image context
     UIImage *outputImage = [[[UIImage alloc] initWithCGImage:UIGraphicsGetImageFromCurrentImageContext().CGImage scale:scale orientation:UIImageOrientationUp] autorelease];
-    //write (debud)
+    //write (debug)
     //[UIImagePNGRepresentation(outputImage) writeToFile:@"/Users/mathieu/Desktop/test.png" atomically:YES];
     
     // clean up drawing environment
@@ -259,7 +274,7 @@ static const CGFloat gradientDimAlpha = 0.5;
     return outputImage;
 }
 
-- (UIImage *) clear {
+- (UIImage *) clearPixel {
     CGRect rect = CGRectMake(0.0, 0.0, 1.0, 1.0);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -342,22 +357,17 @@ static const CGFloat gradientDimAlpha = 0.5;
 	}
 }
 
-// label's layer delegate method
 - (void)drawLayer:(CALayer *)theLayer inContext:(CGContextRef)theContext
-{
-	// Set the font
-	const char *labelFontName = [self.font.fontName UTF8String];
-	
+{	
 	// Note: due to use of kCGEncodingMacRoman, this code only works with Roman alphabets! 
 	// In order to support non-Roman alphabets, you need to add code generate glyphs,
 	// and use CGContextShowGlyphsAtPoint
-	CGContextSelectFont(theContext, labelFontName, self.font.pointSize, kCGEncodingMacRoman);
+	CGContextSelectFont(theContext, [self.font.fontName UTF8String], self.font.pointSize, kCGEncodingMacRoman);
     
 	// Set Text Matrix
-	CGAffineTransform xform = CGAffineTransformMake(1.0,  0.0,
-													0.0, -1.0,
-													0.0,  0.0);
-	CGContextSetTextMatrix(theContext, xform);
+	CGContextSetTextMatrix(theContext, CGAffineTransformMake(1.0,  0.0,
+                                                             0.0, -1.0,
+                                                             0.0,  0.0));
 	
 	// Set Drawing Mode to clipping path, to clip the gradient created below
 	CGContextSetTextDrawingMode (theContext, kCGTextClip);
@@ -441,7 +451,9 @@ static const CGFloat gradientDimAlpha = 0.5;
 	[self.layer setNeedsDisplay];
 }
 
+- (void) dealloc {
+    [self stopTimer];
+    [super dealloc];
+}
+
 @end
-
-
-
