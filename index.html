@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>MBSliderview by mattlawer</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>MBSliderview</h1>
+        <p>An iOS control that looks like the 'Slide to unlock' slider</p>
+        <p class="view"><a href="https://github.com/mattlawer/MBSliderView">View the Project on GitHub <small>mattlawer/MBSliderView</small></a></p>
+        <ul>
+          <li><a href="https://github.com/mattlawer/MBSliderView/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mattlawer/MBSliderView/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mattlawer/MBSliderView">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>MBSliderView</h1>
+
+<p>MBSliderView is an iOS control that looks like 'Slide to unlock' slider.<br>
+It's really easy to implement and fully customizable.<br>
+It can be loaded from a nib file (You can use Interface Builder).
+The slider thumb is drawn with CoreGraphics so you could change the color as you like.<br>
+You also can set the label color :P<br></p>
+
+<p><img width="320" src="http://img204.imageshack.us/img204/2815/capturedcran20120728204.png"></p>
+
+<h2>Usage</h2>
+
+<h3>Use it with Interface Builder :</h3>
+
+<ol>
+<li>
+<p>Add a MBSliderView variable and the delegate protocol to your controller  :</p>
+
+<pre><code>@interface ViewController : UIViewController &lt;MBSliderViewDelegate&gt;{
+    // IBOutlet is just for Interface Builder
+    IBOutlet MBSliderView *slider;
+}
+</code></pre>
+</li>
+<li><p>Create an UIView in Interface Builder and change the class to MBSliderView,<br>
+then link it to the IBOutlet you just created at step 1 and the delegate to the controller :</p></li>
+</ol><p><img width="320" src="http://img820.imageshack.us/img820/1002/slideviewib1.png"> <img width="320" src="http://img39.imageshack.us/img39/720/slideviewib2.png"></p>
+
+<ol>
+<li>
+<p>Implement the delegate method in the controller :</p>
+
+<pre><code>// MBSliderViewDelegate
+- (void) sliderDidSlide:(MBSliderView *)slideView {
+    // Customization example
+    // Just do whatever you want
+    [slideView setThumbColor:[self randomColor]];
+    [slideView setLabelColor:[self randomColor]];
+}
+</code></pre>
+</li>
+</ol><h3>Use it without Interface Builder :</h3>
+
+<ol>
+<li>
+<p>Add the delegate protocol to your controller :</p>
+
+<pre><code>@interface ViewController : UIViewController &lt;MBSliderViewDelegate&gt;
+</code></pre>
+</li>
+<li>
+<p>Create the MBSliderView and add it to the conroller view :</p>
+
+<pre><code>MBSliderView *slider = [[MBSliderView alloc] initWithFrame:CGRectMake(20.0, 20.0, self.view.frame.size.width-40.0, 44.0)];
+[slider setText:@"Slide to something"]; // set the label text
+//[s1 setThumbColor:[UIColor blueColor]; // set custom thumb color
+//[s1 setLabelColor:[UIColor yellowColor]]; // set custom label color
+[slider setDelegate:self]; // set the MBSliderView delegate
+[self.view addSubview:slider];
+[slider release];
+</code></pre>
+</li>
+<li>
+<p>Implement the delegate method in the controller :</p>
+
+<pre><code>// MBSliderViewDelegate
+- (void) sliderDidSlide:(MBSliderView *)slideView {
+    // Customization example
+    // Just do whatever you want
+    [slideView setThumbColor:[self randomColor]];
+    [slideView setLabelColor:[self randomColor]];
+}
+</code></pre>
+</li>
+</ol><h2>Example</h2>
+
+<p>With some randoms colors</p>
+
+<p><img width="316" src="http://img607.imageshack.us/img607/2592/capturedcran20120728203.png"></p>
+
+<h2>License</h2>
+
+<p>Copyright (c) 2012, Mathieu Bolard
+All rights reserved.</p>
+
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+
+<ul>
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of Mathieu Bolard, mattlawer nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p></li>
+</ul><p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Mathieu Bolard BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<h2>Contact</h2>
+
+<p><a href="mailto:mattlawer08@gmail.com">mattlawer08@gmail.com</a><br><a href="http://mathieubolard.com">http://mathieubolard.com</a><br><a href="http://twitter.com/mattlawer">http://twitter.com/mattlawer</a></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/mattlawer">mattlawer</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
