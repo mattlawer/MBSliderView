@@ -60,7 +60,7 @@ static const CGFloat gradientDimAlpha = 0.5;
     if (!_label || !_slider) {
         [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         
-        _label = [[MBSliderLabel alloc] initWithFrame:CGRectMake((self.bounds.size.width-180.0)/2.0+50.0, (self.bounds.size.height-30.0)/2.0, 180.0, 30.0)];
+        _label = [[MBSliderLabel alloc] initWithFrame:CGRectZero];
         _label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         _label.textColor = [UIColor whiteColor];
         _label.textAlignment = UITextAlignmentCenter;
@@ -72,7 +72,7 @@ static const CGFloat gradientDimAlpha = 0.5;
         
         
         
-        _slider = [[UISlider alloc] initWithFrame:self.bounds];
+        _slider = [[UISlider alloc] initWithFrame:CGRectZero];
         _slider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         CGPoint ctr = _slider.center;
         CGRect sliderFrame = _slider.frame;
@@ -107,6 +107,20 @@ static const CGFloat gradientDimAlpha = 0.5;
                    action:@selector(sliderChanged:) 
          forControlEvents:UIControlEventValueChanged];
     }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    CGFloat sliderWidth = [_slider thumbImageForState:_slider.state].size.width;
+    CGSize labelSize = [_label sizeThatFits:self.bounds.size];
+    
+    _label.frame = CGRectMake(sliderWidth + 30.0,
+                              CGRectGetMidY(self.bounds) - (labelSize.height / 2.0),
+                              CGRectGetWidth(self.bounds) - sliderWidth - 30.0,
+                              labelSize.height
+                              );
+    _slider.frame = self.bounds;
 }
 
 // Implement the "enabled" property
