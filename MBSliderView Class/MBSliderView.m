@@ -34,7 +34,6 @@ static const CGFloat gradientDimAlpha = 0.5;
     }
     self = [super initWithFrame:frame];
     if (self) {
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self loadContent];        
     }
     return self;
