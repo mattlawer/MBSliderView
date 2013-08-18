@@ -191,13 +191,6 @@ static const CGFloat gradientDimAlpha = 0.5;
     [_slider setThumbImage:[self thumbWithColor:color] forState:UIControlStateNormal];
 }
 
-- (void) dealloc {
-    [_slider release];
-    [_label release];
-    _delegate = nil;
-    [super dealloc];
-}
-
 - (UIImage *) thumbWithColor:(UIColor*)color {
     CGFloat scale = [UIScreen mainScreen].scale;
     if (scale<1.0) {scale = 1.0;}
@@ -277,7 +270,7 @@ static const CGFloat gradientDimAlpha = 0.5;
     UIGraphicsPopContext();                             
     
     // get a UIImage from the image context
-    UIImage *outputImage = [[[UIImage alloc] initWithCGImage:UIGraphicsGetImageFromCurrentImageContext().CGImage scale:scale orientation:UIImageOrientationUp] autorelease];
+    UIImage *outputImage = [[UIImage alloc] initWithCGImage:UIGraphicsGetImageFromCurrentImageContext().CGImage scale:scale orientation:UIImageOrientationUp];
     //write (debug)
     //[UIImagePNGRepresentation(outputImage) writeToFile:@"/Users/mathieu/Desktop/test.png" atomically:YES];
     
@@ -354,19 +347,19 @@ static const CGFloat gradientDimAlpha = 0.5;
 	if (!animationTimer) {
 		animationTimerCount = 0;
 		[self setGradientLocations:0];
-		animationTimer = [[NSTimer 
+		animationTimer = [NSTimer 
 						   scheduledTimerWithTimeInterval:1.0/FRAMES_PER_SEC 
 						   target:self 
 						   selector:@selector(animationTimerFired:) 
 						   userInfo:nil 
-						   repeats:YES] retain];
+						   repeats:YES];
 	}
 }
 
 - (void) stopTimer {
 	if (animationTimer) {
 		[animationTimer invalidate];
-		[animationTimer release], animationTimer = nil;
+		animationTimer = nil;
 	}
 }
 
@@ -462,11 +455,6 @@ static const CGFloat gradientDimAlpha = 0.5;
 	
 	// Re-render the label text
 	[self.layer setNeedsDisplay];
-}
-
-- (void) dealloc {
-    [self stopTimer];
-    [super dealloc];
 }
 
 @end
