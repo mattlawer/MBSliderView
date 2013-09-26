@@ -20,7 +20,7 @@
 
 @property (nonatomic, assign) NSString *text;
 @property (nonatomic, assign) UIColor *labelColor;
-@property (nonatomic, assign) IBOutlet id<MBSliderViewDelegate> delegate;
+@property (nonatomic) IBOutlet id<MBSliderViewDelegate> delegate;
 @property (nonatomic) BOOL enabled;
 
 - (void) setThumbColor:(UIColor *)color;
