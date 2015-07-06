@@ -8,6 +8,7 @@
 
 #import "MBSliderView.h"
 #import <QuartzCore/QuartzCore.h>
+#import <CoreText/CTFont.h>
 
 #define FRAMES_PER_SEC 10
 
@@ -365,26 +366,54 @@ static const CGFloat gradientDimAlpha = 0.5;
 
 - (void)drawLayer:(CALayer *)theLayer inContext:(CGContextRef)theContext
 {	
-	// Note: due to use of kCGEncodingMacRoman, this code only works with Roman alphabets! 
-	// In order to support non-Roman alphabets, you need to add code generate glyphs,
-	// and use CGContextShowGlyphsAtPoint
-	CGContextSelectFont(theContext, [self.font.fontName UTF8String], self.font.pointSize, kCGEncodingMacRoman);
+    // Note: due to use of kCGEncodingMacRoman, this code only works with Roman alphabets!
+    // In order to support non-Roman alphabets, you need to add code generate glyphs,
+    // and use CGContextShowGlyphsAtPoint
+//MARK: If you use Chinese this is useless. by_wh
+    /*
+     CGContextSelectFont(theContext, [self.font.fontName UTF8String], self.font.pointSize, kCGEncodingMacRoman);*/
     
-	// Set Text Matrix
-	CGContextSetTextMatrix(theContext, CGAffineTransformMake(1.0,  0.0,
+    // Set Text Matrix
+    CGContextSetTextMatrix(theContext, CGAffineTransformMake(1.0,  0.0,
                                                              0.0, -1.0,
                                                              0.0,  0.0));
-	
-	// Set Drawing Mode to clipping path, to clip the gradient created below
-	CGContextSetTextDrawingMode (theContext, kCGTextClip);
-	
-	// Draw the label's text
-	const char *text = [self.text cStringUsingEncoding:NSMacOSRomanStringEncoding];
-	CGContextShowTextAtPoint(theContext, 
-                             0, 
-                             (size_t)self.font.ascender,
-                             text, 
-                             strlen(text));
+    
+    // Set Drawing Mode to clipping path, to clip the gradient created below
+    CGContextSetTextDrawingMode (theContext, kCGTextClip);
+    
+    // Draw the label's text
+//MARK: If you use Chinese this is useless. by_wh
+    /*
+     const char *text = [self.text cStringUsingEncoding:NSMacOSRomanStringEncoding];
+     CGContextShowTextAtPoint(theContext,
+     0,
+     (size_t)self.font.ascender,
+     text,
+     strlen(text));
+     */
+    
+    UniChar *characters;
+    CGGlyph *glyphs;
+    CFIndex count;
+    
+    CTFontRef ctFont = CTFontCreateWithName(CFSTR("STHeitiSC-Light"), 20.0, NULL);
+    CTFontDescriptorRef ctFontDesRef = CTFontCopyFontDescriptor(ctFont);
+    CGFontRef cgFont = CTFontCopyGraphicsFont(ctFont,&ctFontDesRef );
+    CGContextSetFont(theContext, cgFont);
+    CFNumberRef pointSizeRef = (CFNumberRef)CTFontDescriptorCopyAttribute(ctFontDesRef,kCTFontSizeAttribute);
+    CGFloat fontSize;
+    CFNumberGetValue(pointSizeRef, kCFNumberCGFloatType,&fontSize);
+    CGContextSetFontSize(theContext, fontSize);
+    //NSString* str2 = @"这是中文文本This is a Chinese text(Quartz 2D)。";
+    count = CFStringGetLength((CFStringRef)self.text);
+    characters = (UniChar *)malloc(sizeof(UniChar) * count);
+    glyphs = (CGGlyph *)malloc(sizeof(CGGlyph) * count);
+    CFStringGetCharacters((CFStringRef)self.text, CFRangeMake(0, count), characters);
+    CTFontGetGlyphsForCharacters(ctFont, characters, glyphs, count);
+    CGContextShowGlyphsAtPoint(theContext, 0, (size_t)self.font.ascender, glyphs, self.text.length);
+    
+    free(characters);
+    free(glyphs);
     
 	// Calculate text width
 	CGPoint textEnd = CGContextGetTextPosition(theContext);
