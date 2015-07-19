@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>00D361FF-2108-40CD-ADCD-4045FBF73813</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MBSliderView Demo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>60852CDB7FFE27C386EE21457807D8067DAC3CCC</key>
+		<string>https://github.com/wenhaowang/MBSliderView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MBSliderView Demo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>60852CDB7FFE27C386EE21457807D8067DAC3CCC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wenhaowang/MBSliderView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>60852CDB7FFE27C386EE21457807D8067DAC3CCC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>60852CDB7FFE27C386EE21457807D8067DAC3CCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MBSliderView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

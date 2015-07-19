@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18BDEC981B4A4FE5006C07DC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDEC971B4A4FE5006C07DC /* CoreText.framework */; };
 		4E741D1B14DBDD24009ADE31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1A14DBDD24009ADE31 /* UIKit.framework */; };
 		4E741D1D14DBDD24009ADE31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1C14DBDD24009ADE31 /* Foundation.framework */; };
 		4E741D1F14DBDD24009ADE31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E741D1E14DBDD24009ADE31 /* CoreGraphics.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18BDEC971B4A4FE5006C07DC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		4E741D1614DBDD24009ADE31 /* MBSliderView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MBSliderView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E741D1A14DBDD24009ADE31 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E741D1C14DBDD24009ADE31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BDEC981B4A4FE5006C07DC /* CoreText.framework in Frameworks */,
 				4E741D1B14DBDD24009ADE31 /* UIKit.framework in Frameworks */,
 				4E741D1D14DBDD24009ADE31 /* Foundation.framework in Frameworks */,
 				4E741D1F14DBDD24009ADE31 /* CoreGraphics.framework in Frameworks */,
@@ -106,6 +109,7 @@
 		4E741D1914DBDD24009ADE31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18BDEC971B4A4FE5006C07DC /* CoreText.framework */,
 				4E741D1A14DBDD24009ADE31 /* UIKit.framework */,
 				4E741D1C14DBDD24009ADE31 /* Foundation.framework */,
 				4E741D1E14DBDD24009ADE31 /* CoreGraphics.framework */,
@@ -204,7 +208,7 @@
 			name = "MBSliderView DemoTests";
 			productName = "MBSliderView DemoTests";
 			productReference = 4E741D3A14DBDD24009ADE31 /* MBSliderView DemoTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -456,6 +460,7 @@
 				4E741D4E14DBDD24009ADE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E741D4F14DBDD24009ADE31 /* Build configuration list for PBXNativeTarget "MBSliderView DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +469,7 @@
 				4E741D5114DBDD24009ADE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
